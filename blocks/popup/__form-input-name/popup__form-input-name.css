@@ -8,3 +8,8 @@
   margin: 54px auto 0 auto;
   font-size: 14px;
 }
+@media screen and (max-width: 480px) {
+  .popup__form-input-name   {
+    margin: 0 auto 0 auto;
+  }
+}

@@ -1,4 +1,6 @@
 .project {
   font-family: "Inter", "Arial";
   background-color: black;
+  max-width: 880px;
+  margin: 0 auto 0 auto;
 }

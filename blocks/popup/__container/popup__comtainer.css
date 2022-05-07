@@ -4,3 +4,9 @@
   margin: 0;
   text-align: end;
 }
+@media screen and (max-width: 480px) {
+  .popup__container {
+    height: calc(322px + 16px + 20px) px;
+    max-width: 326px;
+  }
+}

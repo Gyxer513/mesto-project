@@ -5,3 +5,11 @@
   line-height: 22px;
   margin: 16px 0 0 0;
 }
+@media screen and (max-width: 480px) {
+  .profile__subname {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 0;
+  }
+}

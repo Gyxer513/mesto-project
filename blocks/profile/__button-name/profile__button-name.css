@@ -5,13 +5,20 @@
   border: 1px solid white;
   background-color: black;
   align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile__button-name:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-.btn {
-  z-index: 10;
+@media screen and (max-width: 480px) {
+  .profile__button-name {
+    margin: 0 0 0 10px;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+  }
 }
-
