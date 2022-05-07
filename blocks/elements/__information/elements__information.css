@@ -1,0 +1,5 @@
+.element__information {
+        display: flex;
+        justify-content: space-between;
+        opacity: 1;
+}

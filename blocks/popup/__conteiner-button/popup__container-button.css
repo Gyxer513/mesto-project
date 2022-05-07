@@ -1,0 +1,17 @@
+.popup__container-button {
+  background-image: url(../../../images/Close\ Icon.png);
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+}
+.popup__container-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+@media screen {
+    
+}

@@ -1,0 +1,19 @@
+.profile__button-place {
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  border: 1px solid white;
+  background-position: center;
+  margin: 35px 0 0 0;
+}
+
+.profile__button-place:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .profile__button-place {
+    margin: 35px auto 0 auto;
+    width: 282px;
+  }
+}

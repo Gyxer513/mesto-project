@@ -1,0 +1,17 @@
+.profile__button-name {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 18px;
+  border: 1px solid white;
+  background-color: black;
+  align-self: flex-end;
+}
+
+.profile__button-name:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.btn {
+  z-index: 10;
+}
+
