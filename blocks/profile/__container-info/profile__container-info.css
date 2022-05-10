@@ -3,6 +3,11 @@
   padding: 0;
   margin: 0;
 }
+@media screen and (max-width: 630px) {
+  .profile__container-info { 
+    margin: 0 auto 0 auto;
+  }
+}
 @media screen and (max-width: 480px) {
   .profile__container-info { 
     flex-direction: column;

@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mesto</title>
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="project">
     <header class="header">
-      <img class="header__logo" src="./images/Vector.png" alt="Лого место" />
+      <img
+        class="header__logo"
+        src="./images/mesto_logo.svg"
+        alt="Лого место"
+      />
     </header>
     <main>
       <!-- ПРОФИЛЬ -->
@@ -22,11 +26,11 @@
           />
           <div class="profile__info">
             <div class="profile__container-name">
-              <h2 class="profile__name">Жак-ив Кусто</h2>
-              <button class="profile__button-name">
+              <h1 class="profile__name">Жак-ив Кусто</h1>
+              <button class="profile__button-name" type="button" aria-label="edit">
                 <img
                   class="profile__button-name-image"
-                  src="images/button-pen.png"
+                  src="images/button_pen_ico.svg"
                   alt="Ручка"
                 />
               </button>
@@ -34,17 +38,17 @@
             <p class="profile__subname">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__button-place">
+        <button class="profile__button-place" type="button" aria-label="Add place"> 
           <img
             class="profile__button-place-image"
-            src="./images/button-place.png"
+            src="./images/button-place.svg"
             alt="Плюс"
           />
         </button>
       </section>
       <!-- ЭЛЕМЕНТЫ -->
       <section class="elements">
-        <div class="elements__place">
+        <article class="elements__place">
           <img
             class="elements__image"
             src="./images/kirill-pershin-1088404-unsplash.jpg"
@@ -52,9 +56,9 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Карачаевск</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button> <!-- Не уверен что правильно указал тип кнопки, как вариант можно использовать chebox -->
           </div>
-        </div>
+        </article>
         <div class="elements__place">
           <img
             class="elements__image"
@@ -63,7 +67,7 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Гора Эльбрус</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button>
           </div>
         </div>
         <div class="elements__place">
@@ -74,7 +78,7 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Домбай</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button>
           </div>
         </div>
         <div class="elements__place">
@@ -85,7 +89,7 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Гора эльбрус</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button>
           </div>
         </div>
         <div class="elements__place">
@@ -96,7 +100,7 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Домбай</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button>
           </div>
         </div>
         <div class="elements__place">
@@ -107,7 +111,7 @@
           />
           <div class="element__information">
             <h2 class="elements__name">Карачаево-Ч...</h2>
-            <button class="elements__heart"></button>
+            <button class="elements__heart" type="button"></button>
           </div>
         </div>
       </section>
@@ -121,13 +125,14 @@
         <button
           class="popup__container-button"
           type="button"
+          type="button"
           aria-label="Закрыть"
         ></button>
         <form class="popup__form" name="edit" novalidate>
           <h3 class="popup__title">Редактировать профиль</h3>
           <input
             id="name-input"
-            class="popup__form-input-name"
+            class="popup__form-input"
             placeholder="Жак-ив Кусто"
             type="text"
             name="name"
@@ -137,7 +142,7 @@
           />
           <input
             id="job-input"
-            class="popup__form-input-subname"
+            class="popup__form-input"
             placeholder="Исследователь океана"
             type="text"
             name="job"

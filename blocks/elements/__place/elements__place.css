@@ -1,8 +1,7 @@
 .elements__place {
   margin: 0;
   width: 282px;
-  height: 361px;
-  background-color: aliceblue;
+  background-color: white;
   border-radius: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
