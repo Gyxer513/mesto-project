@@ -6,13 +6,16 @@
   margin: 16px 0 0 0;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 336px;
+  overflow: hidden;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 505px) {
   .profile__subname {
     text-align: center;
     margin: 10px 0 0 0;
     font-size: 14px;
     line-height: 17px;
     padding: 0;
+    max-width: 282px;
   }
 }
