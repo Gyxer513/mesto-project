@@ -1,167 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mesto</title>
-    <link rel="stylesheet" href="pages/index.css" />
-  </head>
-  <body class="project">
-    <header class="header">
-      <img
-        class="header__logo"
-        src="./images/mesto_logo.svg"
-        alt="Лого место"
-      />
-    </header>
-    <main>
-      <!-- ПРОФИЛЬ -->
-      <section class="profile">
-        <div class="profile__container-info">
-          <img
-            class="profile__photo"
-            src="images/image.jpg"
-            alt="Фото профиля"
-          />
-          <div class="profile__info">
-            <div class="profile__container-name">
-              <h1 class="profile__name">Жак-ив Кусто</h1>
-              <button
-                class="profile__button-name"
-                type="button"
-                aria-label="edit"
-              >
-                <img
-                  class="profile__button-name-image"
-                  src="images/button_pen_ico.svg"
-                  alt="Ручка"
-                />
-              </button>
-            </div>
-            <p class="profile__subname">Исследователь океана</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mesto</title>
+  <link rel="stylesheet" href="pages/index.css" />
+</head>
+
+<body class="project">
+  <header class="header">
+    <img class="header__logo" src="./images/mesto_logo.svg" alt="Лого место" />
+  </header>
+  <main>
+    <!-- ПРОФИЛЬ -->
+    <section class="profile">
+      <div class="profile__container-info">
+        <img class="profile__photo" src="images/image.jpg" alt="Фото профиля" />
+        <div class="profile__info">
+          <div class="profile__container-name">
+            <h1 class="profile__name">Жак-ив Кусто</h1>
+            <button class="profile__button-name" type="button" aria-label="edit">
+              <img class="profile__button-name-image" src="images/button_pen_ico.svg" alt="Ручка" />
+            </button>
           </div>
+          <p class="profile__subname">Исследователь океана</p>
         </div>
-        <button
-          class="profile__button-place"
-          type="button"
-          aria-label="Add place"
-        >
-          <img
-            class="profile__button-place-image"
-            src="./images/button-place.svg"
-            alt="Плюс"
-          />
-        </button>
-      </section>
-      <!-- ЭЛЕМЕНТЫ -->
-      <section class="elements">
-        <article class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1088404-unsplash.jpg"
-            alt="Карачаевск"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Карачаевск</h2>
-            <button class="elements__heart" type="button"></button>
-            <!-- Не уверен что правильно указал тип кнопки, как вариант можно использовать chebox -->
-          </div>
-        </article>
-        <div class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1404681-unsplash.png"
-            alt="Эльбрус"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Гора Эльбрус</h2>
-            <button class="elements__heart" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1556355-unsplash.png"
-            alt="Карачаевск"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Домбай</h2>
-            <button class="elements__heart" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1404681-unsplash.png"
-            alt="Карачаевск"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Гора эльбрус</h2>
-            <button class="elements__heart" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1556355-unsplash.png"
-            alt="Карачаевск"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Домбай</h2>
-            <button class="elements__heart" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__place">
-          <img
-            class="elements__image"
-            src="./images/kirill-pershin-1088404-unsplash.jpg"
-            alt="Карачаевск"
-          />
-          <div class="element__information">
-            <h2 class="elements__name">Карачаево-Ч...</h2>
-            <button class="elements__heart" type="button"></button>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__autor">© 2020 Mesto Russia</p>
-    </footer>
-    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ***** ДЛЯ ОТОБРАЖЕНИЯ НЕОБХОДИМО ДОБАВИТЬ popup_opened ***** -->
-    <section class="popup">
-      <div class="popup__container">
-        <button
-          class="popup__container-button"
-          type="button"
-          type="button"
-          aria-label="Закрыть"
-        ></button>
-        <form class="popup__form" name="edit" novalidate>
-          <h3 class="popup__title">Редактировать профиль</h3>
-          <input
-            id="name-input"
-            class="popup__form-input"
-            placeholder="Жак-ив Кусто"
-            type="text"
-            name="name"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <input
-            id="job-input"
-            class="popup__form-input"
-            placeholder="Исследователь океана"
-            type="text"
-            name="job"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <button class="popup__button-save" type="submit">Сохранить</button>
-        </form>
       </div>
+      <button class="profile__button-place" type="button" aria-label="Add place">
+        <img class="profile__button-place-image" src="./images/button-place.svg" alt="Плюс" />
+      </button>
     </section>
-  </body>
+    <!-- ЭЛЕМЕНТЫ -->
+    <template id="elements">
+      <li class="elements__place">
+        <button class="elements__button-remove" type="button"></button>
+        <img class="elements__image"  alt="Изображение" />
+        <div class="element__information">
+          <h2 class="elements__name"></h2>
+          <button class="elements__heart" type="button"></button>
+        </div>
+      </li>
+    </template>
+  </main>
+  <footer class="footer">
+    <p class="footer__autor">© 2020 Mesto Russia</p>
+  </footer>
+  <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+  <section class="popup">
+    <div class="popup__container">
+      <button class="popup__container-button" type="button" aria-label="Закрыть"></button>
+      <form class="popup__form" name="edit" novalidate>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input id="first-input" class="popup__form-input" placeholder="" type="text" name="name"
+          minlength="2" maxlength="40" required />
+        <input id="second-input" class="popup__form-input" placeholder="" type="text" name="job"
+          minlength="2" maxlength="200" required />
+        <button class="popup__button-save" type="button">Сохранить</button>
+      </form>
+    </div>
+    <!-- ZOOM -->
+  </section>
+  <section class="zoom">
+    <div class="zoom__container">
+      <button class="zoom__container-button" type="button" aria-label="Закрыть"></button>
+      <img class="zoom__image" alt="Картинка">
+      <p class="zoom__signature"></p>
+    </div>
+  </section>
+</body>
+<script src="./scripts/index.js"></script>
+
 </html>

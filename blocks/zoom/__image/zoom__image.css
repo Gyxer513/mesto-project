@@ -1,0 +1,10 @@
+.zoom__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: 0 40px 0 40px;
+}
+@media screen and (max-width: 480px) {
+  .zoom__image {
+    margin: 0 18px 0 18px;
+  }
+}

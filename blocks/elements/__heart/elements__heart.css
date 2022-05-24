@@ -11,8 +11,4 @@
 .elements__heart:hover {
   cursor: pointer;
   opacity: 0.5;
-  
-}
-.elements__heart:active {
-  background-image: url("../../../images/heart_black.png");
 }
