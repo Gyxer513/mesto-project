@@ -1,4 +1,4 @@
-.elements__button-remove {
+.element__button-remove {
   position: absolute;
   height: 19px;
   width: 18px;
@@ -9,7 +9,7 @@
   border: none;
   background-color: transparent;
 }
-.elements__button-remove:hover {
+.element__button-remove:hover {
   opacity: 0.6;
   cursor: pointer;
 }
