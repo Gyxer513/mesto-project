@@ -1,22 +1,5 @@
 .zoom__container-button {
-    background-image: url(../../../images/Close\ Icon.svg);
-    width: 32px;
-    height: 32px;
-    background-color: transparent;
-    border: none;
-    background-position: center;
-    padding: 0;
     margin: 0 0 8px 40px;
     position: relative;
     align-self: flex-end;
-  }
-  .zoom__container-button:hover {
-    cursor: pointer;
-    opacity: 0.6;
-  }
-  @media screen and (max-width: 480px) {
-    .zoom__container-button {
-      width: 20px;
-      height: 20px;
-    }
   }

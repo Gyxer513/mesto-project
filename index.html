@@ -56,24 +56,23 @@
         </button>
       </section>
       <!-- ЭЛЕМЕНТЫ -->
-      <template id="element">
-        <ul class="element__place">
-          <li>
-            <button class="element__button-remove" type="button"></button>
-          </li>
-          <li><img class="element__image" alt="Изображение" /></li>
-          <li>
-            <div class="element__information">
-              <h2 class="element__name"></h2>
-              <button class="element__heart" type="button"></button>
-            </div>
-          </li>
-        </ul>
-      </template>
+      <ul id="elements">
+        <!-- /* Я СДЕЛАЛ ЭТО, НО ЗАЧЕМ??? */ -->
+      </ul>
     </main>
     <footer class="footer">
       <p class="footer__autor">© 2020 Mesto Russia</p>
     </footer>
+    <template id="element">
+      <li class="element__place">
+        <button class="element__button-remove" type="button"></button>
+            <img class="element__image" alt="Изображение" />
+            <div class="element__information">
+              <h2 class="element__name"></h2>
+              <button class="element__heart" type="button"></button>
+            </div>
+        </li>
+    </template>
     <!-- ВСПЛЫВАЮЩИЕ ОКНА -->
     <section class="popup popup_js-edit-profile">
       <div class="popup__container">
@@ -82,7 +81,7 @@
           type="button"
           aria-label="Закрыть"
         ></button>
-        <form class="popup__form popup__form_js-profile">
+        <form class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
           <input
             id="name"
@@ -120,12 +119,12 @@
           type="button"
           aria-label="Закрыть"
         ></button>
-        <form class="popup__form popup__form_js-place">
+        <form class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
           <input
             id="place"
             class="popup__form-input"
-            placeholder=""
+            placeholder="Название"
             type="text"
             name="name"
             minlength="2"
@@ -135,7 +134,7 @@
           <input
             id="picture"
             class="popup__form-input"
-            placeholder=""
+            placeholder="Ссылка на картинку"
             type="text"
             name="job"
             minlength="2"
@@ -155,7 +154,7 @@
     <section class="popup zoom">
       <div class="zoom__container">
         <button
-          class="zoom__container-button"
+          class="popup__container-button zoom__container-button"
           type="button"
           aria-label="Закрыть"
         ></button>
