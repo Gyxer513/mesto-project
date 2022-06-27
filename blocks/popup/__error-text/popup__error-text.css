@@ -1,0 +1,11 @@
+.popup__error-text {
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255,0,0,1);
+  max-width: 347px;
+  align-self: flex-start;
+  display: none;
+  z-index: 4;
+}

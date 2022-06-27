@@ -7,6 +7,10 @@
   background-position: center;
   padding: 0;
   margin: 0;
+  align-self: end;
+  position: absolute;
+  top: -40px;
+  right: -40px;
 }
 .popup__container-button:hover {
   cursor: pointer;

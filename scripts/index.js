@@ -1,7 +1,9 @@
+const project = document.querySelector(".project")
 /* **** ОБЪЯВЛЯЕМ ВСЕ ПОПАПЫ **** */
 const popupProfile = document.querySelector(".popup_js-edit-profile");
 const popupPlace = document.querySelector(".popup_js-add-place");
 const popupZoom = document.querySelector(".zoom");
+
 
 /* ********** ПЕРЕМЕННЫЕ ********** */
 const profileName = document.querySelector(".profile__name");
@@ -18,14 +20,11 @@ const elements = document.querySelector('#elements');
 const profileButton = document.querySelector(".profile__button-name");
 const placeAdd = document.querySelector(".profile__button-place");
 
-/* *** */ /* КЛАСС, КОНЕЧНО НУЖНО ПЕРЕИМЕНОВАТЬ, НО ТОГДА НУЖНО МЕНЯТЬ СТРУКТУРУ БЭМ */
-const profileCloseButton = popupProfile.querySelector(
-  ".popup__container-button"
-);
-const placeCloseButton = popupPlace.querySelector(
-  ".popup__container-button"
-);
+/* *** */ 
+
+const placeCloseButton = popupPlace.querySelector(".popup__container-button");
 const zoomCloseButton = popupZoom.querySelector(".popup__container-button");
+const profileCloseButton = popupProfile.querySelector(".popup__container-button");
 
 /* *** */
 const profileSaveButton = document.querySelector(
@@ -159,6 +158,94 @@ const cardsList = initialCards.map(function (items) {
   return createstartItems(items);
 });
 
-elements.prepend(...cardsList); /* Я СДЕЛАЛ ЭТО, НО ЗАЧЕМ??? */
+elements.prepend(...cardsList); 
+
+
+
+
+function closePoupEscapeButton (evt) {
+  if (evt.key === "Escape") {
+    closePopup(popupPlace);
+    closePopup(popupZoom);
+    closePopup(popupProfile);
+  }
+}
+project.addEventListener('keydown', closePoupEscapeButton);
+
+function closePopupOnOverlayClick (evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+}
+project.addEventListener('click', closePopupOnOverlayClick)
+
+
+/* КЛИКАЛКА ДЛЯ ПРОВЕРКИ ЭЛЕМЕНТОВ */
+/* function showClass(x) {
+  console.log(x.classList);
+} 
+project.addEventListener ('click', (evt) => showClass(evt.target)); */
+
+/* inputName.addEventListener('input', function (evt) {
+  // Выведем в консоль значение свойства validity.valid поля ввода, 
+  // на котором слушаем событие input
+  console.log(evt.target.validationMessage);
+  console.log(evt.target.validity.valid);
+});  */
+
+
+/* ВАЛИДАЦИЯ */
+const toggleButtonActive = (buttonSave, isActive = false) => {
+  if(isActive) {
+    buttonSave.classList.remove('popup__button-save_inactive');
+    buttonSave.disabled = false;
+  } else {
+    buttonSave.classList.add('popup__button-save_inactive');
+    buttonSave.disabled = 'disabled';
+    profileForm.removeEventListener("submit", editProfile);
+    profileForm.removeEventListener("submit", addNewCard);
+  }
+}
+
+
+const showError = (errorElement, inputElement) => {
+  errorElement.classList.add('popup__error-text_visible');
+  inputElement.classList.add('popup__form-input_error');
+  errorElement.textContent = inputElement.validationMessage;
+}
+const hideError = (errorElement, inputElement) => {
+  errorElement.classList.remove('popup__error-text_visible');
+  inputElement.classList.remove('popup__form-input_error');
+}
+
+const checkInputValidity = (inputElement, formElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  if (!inputElement.validity.valid || (inputElement.textContent = "")) {
+    showError(errorElement, inputElement);
+  } else {
+    hideError(errorElement, inputElement);
+  }
+};
+
+const setEventLisentner = (formElement) => {
+  const inputList = formElement.querySelectorAll('.popup__form-input');
+  const submitButton = formElement.querySelector('.popup__button-save');
+  [...inputList].forEach(input => {
+    input.addEventListener('input', (e) => {
+      checkInputValidity(input, formElement);
+      toggleButtonActive(submitButton, formElement.checkValidity());
+    });
+  })
+  
+}
+
+const enableValidation = () => {
+  const forms = document.querySelectorAll('.popup__form');
+  [...forms].forEach(form => {
+    setEventLisentner(form);
+  });
+}
+enableValidation();
+
 
 

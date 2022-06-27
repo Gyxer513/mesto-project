@@ -6,11 +6,6 @@
   line-height: 15px;
   align-self: flex-start;
   color: #ffffff;
-  padding: 0 0 0 40px;
-  margin: 0;
+  margin: 5px 0 0 0;
 }
-@media screen and (max-width: 480px) {
-  .zoom__signature {
-    padding: 0 0 0 18px;
-  }
-}
+

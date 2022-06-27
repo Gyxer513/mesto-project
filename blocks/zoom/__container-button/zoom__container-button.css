@@ -1,5 +1,7 @@
 .zoom__container-button {
-    margin: 0 0 8px 40px;
-    position: relative;
-    align-self: flex-end;
+    position: absolute;
+    z-index: 2;
+    top: -40px;
+    right: -40px;
+
   }

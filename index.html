@@ -57,7 +57,6 @@
       </section>
       <!-- ЭЛЕМЕНТЫ -->
       <ul id="elements">
-        <!-- /* Я СДЕЛАЛ ЭТО, НО ЗАЧЕМ??? */ -->
       </ul>
     </main>
     <footer class="footer">
@@ -75,24 +74,23 @@
     </template>
     <!-- ВСПЛЫВАЮЩИЕ ОКНА -->
     <section class="popup popup_js-edit-profile">
-      <div class="popup__container">
-        <button
+        <form class="popup__form" novalidate>
+          <button 
           class="popup__container-button popup__container-button_js-profile"
           type="button"
           aria-label="Закрыть"
         ></button>
-        <form class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input
+          <input type="text"
             id="name"
             class="popup__form-input"
             placeholder=""
-            type="text"
             name="name"
             minlength="2"
             maxlength="40"
             required
           />
+          <span class="popup__error-text name-error"></span>
           <input
             id="subname"
             class="popup__form-input"
@@ -100,26 +98,25 @@
             type="text"
             name="job"
             minlength="2"
-            maxlength="200"
+            maxlength="40"
             required
           />
+          <span class="popup__error-text subname-error"></span>
           <button
-            class="popup__button-save popup__button-save_js-profile"
+            class="popup__button-save popup__button-save_js-profile popup__button-save_inactive"
             type="submit"
           >
             Сохранить
           </button>
         </form>
-      </div>
     </section>
     <section class="popup popup_js-add-place">
-      <div class="popup__container">
-        <button
+        <form class="popup__form" novalidate>
+          <button
           class="popup__container-button popup__container-button_js-place"
           type="button"
           aria-label="Закрыть"
         ></button>
-        <form class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
           <input
             id="place"
@@ -131,24 +128,25 @@
             maxlength="40"
             required
           />
+          <span class="popup__error-text place-error"></span>
           <input
             id="picture"
             class="popup__form-input"
             placeholder="Ссылка на картинку"
-            type="text"
+            type="url"
             name="job"
             minlength="2"
             maxlength="200"
             required
           />
+          <span class="popup__error-text picture-error"></span>
           <button
-            class="popup__button-save popup__button-save_js-place"
+            class="popup__button-save popup__button-save_js-place popup__button-save_inactive"
             type="submit"
           >
             Сохранить
           </button>
         </form>
-      </div>
     </section>
     <!-- ZOOM -->
     <section class="popup zoom">
