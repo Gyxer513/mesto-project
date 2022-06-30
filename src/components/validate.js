@@ -1,5 +1,6 @@
 /* ******* ВАЛИДАЦИЯ ******* */
-import { profileForm, editProfile, addNewCard} from "./index.js";
+import {addNewCard} from './card.js'
+import {profileForm, editProfile} from './modal.js'
 
 export const ValidstionConfig = {
   formSelector: '.popup__form',

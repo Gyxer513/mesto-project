@@ -1,10 +1,14 @@
 /* СОЗДАНИЕ ЭЛЕМЕНТОВ */
-const elementImage = document.querySelector(".element__image");
+import {closePopup, openPopup, popupPlace, placeForm} from './modal.js'
+
+const inputPlace = document.querySelector("#place");
+const inputPicture = document.querySelector("#picture");
+/* const elementImage = document.querySelector(".element__image"); */
 const zoomImage = document.querySelector(".zoom__image");
 const zoomSignature = document.querySelector(".zoom__signature");
 const containerTemplate = document.querySelector("#element");
 export const popupZoom = document.querySelector(".zoom");
-const zoomCloseButton = popupZoom.querySelector(".popup__container-button");
+export const zoomCloseButton = popupZoom.querySelector(".popup__container-button");
 
 const initialCards = [
     {
@@ -33,7 +37,7 @@ const initialCards = [
     },
   ];
   
-  function createstartItems(items) {
+  export function createstartItems(items) {
     
     const elementsCard = containerTemplate.content.querySelector(".element__place").cloneNode(true);
     const buttonDellite = elementsCard.querySelector(".element__button-remove");
@@ -70,4 +74,13 @@ const initialCards = [
     return createstartItems(items);
   });
   
-  
+  /* **** ДОБАВЛЯЕМ НОВУЮ КАРТОЧКУ **** */
+export function addNewCard(evt) {
+  evt.preventDefault();
+  const item = {};
+  item.name = inputPlace.value;
+  item.link = inputPicture.value;
+  elements.prepend(createstartItems(item));
+  closePopup(popupPlace);
+  placeForm.reset();
+};
