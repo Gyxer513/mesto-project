@@ -1,5 +1,5 @@
 /* СОЗДАНИЕ ЭЛЕМЕНТОВ */
-import {closePopup, openPopup, popupPlace, placeForm} from './modal.js'
+import {closePopup, openPopup, popupPlace, placeForm, popupZoom} from './modal.js'
 
 const inputPlace = document.querySelector("#place");
 const inputPicture = document.querySelector("#picture");
@@ -7,7 +7,6 @@ const inputPicture = document.querySelector("#picture");
 const zoomImage = document.querySelector(".zoom__image");
 const zoomSignature = document.querySelector(".zoom__signature");
 const containerTemplate = document.querySelector("#element");
-export const popupZoom = document.querySelector(".zoom");
 export const zoomCloseButton = popupZoom.querySelector(".popup__container-button");
 
 const initialCards = [

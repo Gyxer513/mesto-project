@@ -1,8 +1,6 @@
 /* ******* ВАЛИДАЦИЯ ******* */
-import {addNewCard} from './card.js'
-import {profileForm, editProfile} from './modal.js'
 
-export const ValidstionConfig = {
+export const validstionConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__form-input',
   submitButtonSelector: '.popup__button-save',
@@ -12,15 +10,13 @@ export const ValidstionConfig = {
 }; 
 
 
-const toggleButtonActive = (buttonSave, isActive = false, config) => {
+export const toggleButtonActive = (buttonSave, isActive = false, config) => {
   if(isActive) {
     buttonSave.classList.remove(config.inactiveButtonClass);
     buttonSave.disabled = false;
   } else {
     buttonSave.classList.add(config.inactiveButtonClass);
     buttonSave.disabled = 'disabled';
-    profileForm.removeEventListener("submit", editProfile);
-    profileForm.removeEventListener("submit", addNewCard);
   }
 }
 

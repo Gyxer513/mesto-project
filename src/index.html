@@ -55,8 +55,7 @@
         </button>
       </section>
       <!-- ЭЛЕМЕНТЫ -->
-      <ul id="elements">
-      </ul>
+      <ul id="elements"></ul>
     </main>
     <footer class="footer">
       <p class="footer__autor">© 2020 Mesto Russia</p>
@@ -64,88 +63,91 @@
     <template id="element">
       <li class="element__place">
         <button class="element__button-remove" type="button"></button>
-            <img class="element__image" alt="Изображение" />
-            <div class="element__information">
-              <h2 class="element__name"></h2>
-              <button class="element__heart" type="button"></button>
-            </div>
-        </li>
+        <img class="element__image" alt="Изображение" />
+        <div class="element__information">
+          <h2 class="element__name"></h2>
+          <button class="element__heart" type="button"></button>
+        </div>
+      </li>
     </template>
     <!-- ВСПЛЫВАЮЩИЕ ОКНА -->
     <section class="popup popup_js-edit-profile">
-        <form class="popup__form" novalidate>
-          <button 
+      <form class="popup__form" novalidate>
+        <button
           class="popup__container-button popup__container-button_js-profile"
           type="button"
           aria-label="Закрыть"
         ></button>
-          <h3 class="popup__title">Редактировать профиль</h3>
-          <input type="text"
-            id="name"
-            class="popup__form-input"
-            placeholder=""
-            name="name"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="popup__error-text name-error"></span>
-          <input
-            id="subname"
-            class="popup__form-input"
-            placeholder=""
-            type="text"
-            name="job"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="popup__error-text subname-error"></span>
-          <button
-            class="popup__button-save popup__button-save_js-profile popup__button-save_inactive"
-            type="submit"
-          >
-            Сохранить
-          </button>
-        </form>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input
+          type="text"
+          id="name"
+          class="popup__form-input"
+          placeholder=""
+          name="name"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+        <span class="popup__error-text name-error"></span>
+        <input
+          id="subname"
+          class="popup__form-input"
+          placeholder=""
+          type="text"
+          name="job"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+        <span class="popup__error-text subname-error"></span>
+        <button
+          disabled="disabled"
+          class="popup__button-save popup__button-save_js-profile popup__button-save_inactive"
+          type="submit"
+        >
+          Сохранить
+        </button>
+      </form>
     </section>
     <section class="popup popup_js-add-place">
-        <form class="popup__form" novalidate>
-          <button
+      <form class="popup__form" novalidate>
+        <button
           class="popup__container-button popup__container-button_js-place"
           type="button"
           aria-label="Закрыть"
         ></button>
-          <h3 class="popup__title">Редактировать профиль</h3>
-          <input
-            id="place"
-            class="popup__form-input"
-            placeholder="Название"
-            type="text"
-            name="name"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="popup__error-text place-error"></span>
-          <input
-            id="picture"
-            class="popup__form-input"
-            placeholder="Ссылка на картинку"
-            type="url"
-            name="job"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span class="popup__error-text picture-error"></span>
-          <button
-            class="popup__button-save popup__button-save_js-place popup__button-save_inactive"
-            type="submit"
-          >
-            Сохранить
-          </button>
-        </form>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input
+          id="place"
+          class="popup__form-input"
+          placeholder="Название"
+          type="text"
+          name="name"
+          minlength="2"
+          maxlength="40"
+          required
+        />
+        <span class="popup__error-text place-error"></span>
+        <input
+          id="picture"
+          class="popup__form-input"
+          placeholder="Ссылка на картинку"
+          type="url"
+          name="job"
+          minlength="2"
+          maxlength="200"
+          required
+        />
+        <span class="popup__error-text picture-error"></span>
+        <button
+          disabled="disabled"
+          class="popup__button-save popup__button-save_js-place popup__button-save_inactive"
+          type="submit"
+        >
+          Сохранить
+        </button>
+      </form>
     </section>
     <!-- ZOOM -->
     <section class="popup zoom">
