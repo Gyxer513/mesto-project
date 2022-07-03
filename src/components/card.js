@@ -71,15 +71,10 @@ export function createStartItems(items) {
   });
   return elementsCard;
 }
-/* ЗАКРЫВАЕМ ZOOOOOOM */
-zoomCloseButton.addEventListener("click", function () {
-  closePopup(popupZoom);
-});
 /* БЕРЁМ ЭЛЕМЕНТЫ ИЗ МАССИВА */
 export const cardsList = initialCards.map(function (items) {
   return createStartItems(items);
 });
-
 /* **** ДОБАВЛЯЕМ НОВУЮ КАРТОЧКУ **** */
 export function addNewCard(evt) {
   evt.preventDefault();
