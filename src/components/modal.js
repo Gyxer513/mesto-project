@@ -1,4 +1,4 @@
-import {cleanSpans, removeError, inActiveButton, closePoupEscapeButton, closePopupOnOverlayClick} from './utils.js'
+import {resetVadidation, closePoupEscapeButton} from './utils.js'
 
 /* **** ОБЪЯВЛЯЕМ ВСЕ ПОПАПЫ **** */
 export const popupProfile = document.querySelector(".popup_js-edit-profile");
@@ -26,22 +26,18 @@ export const profileCloseButton = popupProfile.querySelector(
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener('keydown', closePoupEscapeButton);
-  document.removeEventListener('mousedown', closePopupOnOverlayClick);
 }
 /* ********** ЗАКРЫТИЕ ПОПАПОВ ********** */
 export function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener('keydown', closePoupEscapeButton);
-  document.removeEventListener('mousedown', closePopupOnOverlayClick);
 }
 /* ********** ПОПАП ПРОФИЛЯ ********** */
 profileButton.addEventListener("click", function () {
   openPopup(popupProfile);
   inputName.value = profileName.textContent;
   inputSubname.value = profileSubname.textContent;
-  cleanSpans(popupProfile);
-  removeError(popupProfile);
-  inActiveButton(popupProfile);
+  resetVadidation(popupProfile);
 });
 export function editProfile(evt) {
   evt.preventDefault();
@@ -52,9 +48,7 @@ export function editProfile(evt) {
 /* ********** ПОПАП ДОБАВЛЕНИЯ МЕСТА ********** */
 placeAdd.addEventListener("click", function () {
   openPopup(popupPlace);
-  cleanSpans(popupPlace);
-  removeError(popupPlace);
-  inActiveButton(popupPlace);
+  resetVadidation(popupPlace);
 });
 
 

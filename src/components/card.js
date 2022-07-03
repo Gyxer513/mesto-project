@@ -43,7 +43,6 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-
 export function createStartItems(items) {
   const elementsCard = containerTemplate.content
     .querySelector(".element__place")

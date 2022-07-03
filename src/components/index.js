@@ -5,18 +5,12 @@ import {closePopup, popupPlace, editProfile, placeCloseButton, placeForm, profil
 
 /* ********** ПЕРЕМЕННЫЕ ********** */
 const elements = document.querySelector('#elements');
-placeForm.addEventListener("submit", addNewCard);
-
-
 placeCloseButton.addEventListener("click", function () {
   closePopup(popupPlace);
 });
-
 elements.prepend(...cardsList);
-
 placeForm.addEventListener("submit", addNewCard);
 profileForm.addEventListener("submit", editProfile);
-
 /* ВАЛИДАЦИЯ */
 enableValidation(validstionConfig);
 
