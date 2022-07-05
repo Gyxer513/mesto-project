@@ -6,7 +6,8 @@ import {
   placeForm,
   popupZoom,
 } from "./modal.js";
-
+import {getCards} from "./api.js";
+import { data } from "autoprefixer";
 const inputPlace = document.querySelector("#place");
 const inputPicture = document.querySelector("#picture");
 /* const elementImage = document.querySelector(".element__image"); */
@@ -16,33 +17,6 @@ const containerTemplate = document.querySelector("#element");
 export const zoomCloseButton = popupZoom.querySelector(
   ".popup__container-button"
 );
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорск",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 export function createStartItems(items) {
   const elementsCard = containerTemplate.content
     .querySelector(".element__place")
@@ -70,10 +44,6 @@ export function createStartItems(items) {
   });
   return elementsCard;
 }
-/* БЕРЁМ ЭЛЕМЕНТЫ ИЗ МАССИВА */
-export const cardsList = initialCards.map(function (items) {
-  return createStartItems(items);
-});
 /* **** ДОБАВЛЯЕМ НОВУЮ КАРТОЧКУ **** */
 export function addNewCard(evt) {
   evt.preventDefault();

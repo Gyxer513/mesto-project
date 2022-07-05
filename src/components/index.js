@@ -1,27 +1,24 @@
 import '../pages/index.css'; // добавьте импорт главного файла стилей 
 import {enableValidation, validstionConfig} from './validate.js';
-import {cardsList, addNewCard} from './card.js';
+import {addNewCard, createStartItems} from './card.js';
 import {closePopup, popupPlace, editProfile, placeCloseButton, placeForm, profileForm} from './modal.js';
+import {key, getCards} from './api.js';
 
 /* ********** ПЕРЕМЕННЫЕ ********** */
 const elements = document.querySelector('#elements');
 placeCloseButton.addEventListener("click", function () {
   closePopup(popupPlace);
 });
-elements.prepend(...cardsList);
 placeForm.addEventListener("submit", addNewCard);
 profileForm.addEventListener("submit", editProfile);
 /* ВАЛИДАЦИЯ */
 enableValidation(validstionConfig);
-
-
-
- 
-
-
-
-
-
+getCards()
+.then((dataServer)=>{
+  dataServer.forEach((obj) => {
+    elements.prepend(createStartItems(obj));
+  })
+});
 
 
 /* КЛИКАЛКА ДЛЯ ПРОВЕРКИ ЭЛЕМЕНТОВ */
