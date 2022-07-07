@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
   </head>
-
   <body class="project">
     <header class="header">
       <img
@@ -19,14 +18,27 @@
       <!-- ПРОФИЛЬ -->
       <section class="profile">
         <div class="profile__container-info">
-          <img
+          <button type="button"  class="profile__photo">
+            <img
+            id="avatar"
+                  class="profile__photo-image"
+                  src="<%=require('./images/button_pen_ico.svg')%>"
+                  alt="Аватар"
+                />
+                <img
+                  class="profile__photo-name-image"
+                  src="<%=require('./images/button_pen_ico.svg')%>"
+                  alt="Ручка"
+                />
+          </button>
+          <!--  <img
             class="profile__photo"
             src="<%=require('./images/image.jpg')%>"
             alt="Фото профиля"
-          />
+          /> -->
           <div class="profile__info">
             <div class="profile__container-name">
-              <h1 class="profile__name">Жак-ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button
                 class="profile__button-name"
                 type="button"
@@ -39,7 +51,7 @@
                 />
               </button>
             </div>
-            <p class="profile__subname">Исследователь океана</p>
+            <p class="profile__subname"></p>
           </div>
         </div>
         <button
@@ -66,7 +78,10 @@
         <img class="element__image" alt="Изображение" />
         <div class="element__information">
           <h2 class="element__name"></h2>
-          <button class="element__heart" type="button"></button>
+          <div class="element__heart-container">
+            <button class="element__heart" type="button"></button>
+            <span class="element__like-count">0</span>
+          </div>
         </div>
       </li>
     </template>

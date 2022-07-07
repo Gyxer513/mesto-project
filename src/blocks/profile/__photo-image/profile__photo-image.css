@@ -1,0 +1,10 @@
+.profile__photo-image {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+.profile__photo-image:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

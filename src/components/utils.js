@@ -1,5 +1,5 @@
 import {closePopup} from "./modal";
-
+const buttonSave = document.querySelector('.popup__button-save_inactive');
 const popups = document.querySelectorAll('.popup');
 
 function cleanSpans(evt) {
@@ -42,3 +42,12 @@ export function resetVadidation(popup) {
           }
       })
   })
+
+  export function renderLoading(isLoading) {
+    if (isLoading) {
+      buttonSave.textContent = 'Сохранение...'
+      console.log(buttonSave.textContent)
+    } else {
+      buttonSave.textContent = 'Сохранить'
+  }
+  };

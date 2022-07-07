@@ -42,3 +42,7 @@
 @import url(../blocks/popup/__error-text/__error-text_visible/error-text_visible.css);
 @import url(../blocks/popup/__button-save/__button-save_inactive/popup__button-save_inactive.css);
 @import url(../blocks/popup/__form-input/__form-input_error/popup__form-input_error.css);
+@import url(../blocks/element/__heart-container/element__heart-container.css);
+@import url(../blocks/element/__like-count/element__like-count.css);
+@import url(../blocks/profile/__photo-image/profile__photo-image.css);
+@import url(../blocks/element/__button-remove_invisible/element__button-remove_invisible.css)

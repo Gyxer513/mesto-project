@@ -11,8 +11,8 @@ export const placeAdd = document.querySelector(".profile__button-place");
 const inputName = document.querySelector("#name");
 const inputSubname = document.querySelector("#subname");
 /* **** /-/-/ **** */
-const profileName = document.querySelector(".profile__name");
-const profileSubname = document.querySelector(".profile__subname");
+export const profileName = document.querySelector(".profile__name");
+export const profileSubname = document.querySelector(".profile__subname");
 /* *** */
 export const profileForm = popupProfile.querySelector(".popup__form");
 export const placeForm = popupPlace.querySelector(".popup__form");
