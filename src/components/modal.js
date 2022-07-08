@@ -4,12 +4,15 @@ import {resetVadidation, closePoupEscapeButton} from './utils.js'
 export const popupProfile = document.querySelector(".popup_js-edit-profile");
 export const popupPlace = document.querySelector(".popup_js-add-place");
 export const popupZoom = document.querySelector(".zoom");
+export const popupRemove = document.querySelector(".popup_js-remove");
+export const popupAvatar = document.querySelector(".popup_js-avatar")
 /* **** ОБЪЯВЛЯЕМ ВСЕ КНОПКИ **** */
 export const profileButton = document.querySelector(".profile__button-name");
 export const placeAdd = document.querySelector(".profile__button-place");
 /* **** ИНПУТЫ **** */
-const inputName = document.querySelector("#name");
-const inputSubname = document.querySelector("#subname");
+export const inputName = document.querySelector("#name");
+export const inputSubname = document.querySelector("#subname");
+export const inputAvatar = document.querySelector("#avatarPicture");
 /* **** /-/-/ **** */
 export const profileName = document.querySelector(".profile__name");
 export const profileSubname = document.querySelector(".profile__subname");
@@ -39,8 +42,7 @@ profileButton.addEventListener("click", function () {
   inputSubname.value = profileSubname.textContent;
   resetVadidation(popupProfile);
 });
-export function editProfile(evt) {
-  evt.preventDefault();
+export function editProfile() {
   profileName.textContent = inputName.value;
   profileSubname.textContent = inputSubname.value;
   closePopup(popupProfile);

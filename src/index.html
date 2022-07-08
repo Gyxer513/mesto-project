@@ -31,11 +31,6 @@
                   alt="Ручка"
                 />
           </button>
-          <!--  <img
-            class="profile__photo"
-            src="<%=require('./images/image.jpg')%>"
-            alt="Фото профиля"
-          /> -->
           <div class="profile__info">
             <div class="profile__container-name">
               <h1 class="profile__name"></h1>
@@ -164,6 +159,51 @@
         </button>
       </form>
     </section>
+ <!--    ***** ПОПАПЫ 4го СПРИНТА ***** -->
+ <section class="popup popup_js-remove">
+  <form class="popup__form" novalidate>
+    <button
+          class="popup__container-button popup__container-button_remove"
+          type="button"
+          aria-label="Закрыть"
+        ></button>
+  <h3 class="popup__title">Вы уверены?</h3>
+    <button
+      class="popup__button-save popup__button-remove_js-profile"
+      type="submit"
+    >
+      Удалить
+    </button>
+  </form>
+</section>
+<section class="popup popup_js-avatar">
+  <form class="popup__form" novalidate>
+    <button
+      class="popup__container-button popup__container-button_js-place"
+      type="button"
+      aria-label="Закрыть"
+    ></button>
+    <h3 class="popup__title">Редактировать аватар</h3>
+    <input
+          id="avatarPicture"
+          class="popup__form-input"
+          placeholder="Ссылка на картинку"
+          type="url"
+          name="job"
+          minlength="2"
+          maxlength="200"
+          required
+        />
+        <span class="popup__error-text avatarPicture-error"></span>
+    <button
+      disabled="disabled"
+      class="popup__button-save popup__button-save_js-place popup__button-save_inactive"
+      type="submit"
+    >
+      Сохранить
+    </button>
+  </form>
+</section>
     <!-- ZOOM -->
     <section class="popup zoom">
       <div class="zoom__container">

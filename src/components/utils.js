@@ -46,8 +46,14 @@ export function resetVadidation(popup) {
   export function renderLoading(isLoading) {
     if (isLoading) {
       buttonSave.textContent = 'Сохранение...'
-      console.log(buttonSave.textContent)
     } else {
       buttonSave.textContent = 'Сохранить'
+  }
+  };
+  export function renderDelliting(isDelliting) {
+    if (isDelliting) {
+      buttonSave.textContent = 'Удаление...'
+    } else {
+      buttonSave.textContent = 'Удалить'
   }
   };

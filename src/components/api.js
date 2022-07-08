@@ -35,26 +35,56 @@ export function postCard(data) {
     })
   .then(onResponse)
 }
-export function postProfile() {
+export function postProfile(dataProfile) {
   return fetch ('https://nomoreparties.co/v1/plus-cohort-13/users/me', {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(dataProfile),
     })
   .then(onResponse)
 }
 
 export function removeCard(dataID) {
-  return fetch ('https://nomoreparties.co/v1/plus-cohort-13/cards', {
+  return fetch (`https://nomoreparties.co/v1/plus-cohort-13/cards/${dataID}`, {
     method: 'DELETE',
+    headers: {
+      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
+    },
+    body: JSON.stringify(dataID),
+    })
+  .then(onResponse)
+}
+export function addLike(dataID) {
+  return fetch (`https://nomoreparties.co/v1/plus-cohort-13/cards/likes/${dataID}`, {
+    method: 'PUT',
+    headers: {
+      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
+    },
+    body: JSON.stringify(dataID),
+    })
+  .then(onResponse)
+}
+export function removeLike(dataID) {
+  return fetch (`https://nomoreparties.co/v1/plus-cohort-13/cards/likes/${dataID}`, {
+    method: 'DELETE',
+    headers: {
+      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
+    },
+    body: JSON.stringify(dataID),
+    })
+  .then(onResponse)
+}
+export function addAvatar(avatarData) {
+  return fetch ("https://nomoreparties.co/v1/plus-cohort-13/users/me/avatar", {
+    method: 'PATCH',
     headers: {
       authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(avatarData),
     })
   .then(onResponse)
 }

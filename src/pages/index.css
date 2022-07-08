@@ -45,4 +45,6 @@
 @import url(../blocks/element/__heart-container/element__heart-container.css);
 @import url(../blocks/element/__like-count/element__like-count.css);
 @import url(../blocks/profile/__photo-image/profile__photo-image.css);
-@import url(../blocks/element/__button-remove_invisible/element__button-remove_invisible.css)
+@import url(../blocks/element/__button-remove_invisible/element__button-remove_invisible.css);
+@import url(../blocks/popup/_js-remove/popup_js-remove.css);
+@import url(../blocks/profile/__photo-name-image/profile__photo-name-image.css);
