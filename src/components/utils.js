@@ -1,5 +1,5 @@
 import {closePopup} from "./modal";
-const buttonSave = document.querySelector('.popup__button-save_inactive');
+const buttonSave = document.querySelector('.popup__button-save');
 const popups = document.querySelectorAll('.popup');
 
 function cleanSpans(evt) {
@@ -43,17 +43,19 @@ export function resetVadidation(popup) {
       })
   })
 
-  export function renderLoading(isLoading) {
+  export function renderLoading(isLoading, popup) {
+    const popupButton = popup.querySelector('.popup__button-save');
     if (isLoading) {
-      buttonSave.textContent = 'Сохранение...'
+      popupButton.textContent = 'Сохранение...'
     } else {
-      buttonSave.textContent = 'Сохранить'
+      popupButton.textContent = 'Сохранить'
   }
   };
-  export function renderDelliting(isDelliting) {
-    if (isDelliting) {
-      buttonSave.textContent = 'Удаление...'
+  export function renderDelliting(isLoading, popup) {
+    const popupButton = popup.querySelector('.popup__button-save');
+    if (isLoading) {
+      popupButton.textContent = 'Удаление...'
     } else {
-      buttonSave.textContent = 'Удалить'
+      popupButton.textContent = 'Удалить'
   }
   };

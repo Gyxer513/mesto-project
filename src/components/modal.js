@@ -32,6 +32,7 @@ export function openPopup(popup) {
 }
 /* ********** ЗАКРЫТИЕ ПОПАПОВ ********** */
 export function closePopup(popup) {
+  popup.dispatchEvent(new CustomEvent('close', {}));
   popup.classList.remove("popup_opened");
   document.removeEventListener('keydown', closePoupEscapeButton);
 }

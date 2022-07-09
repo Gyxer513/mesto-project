@@ -1,6 +1,11 @@
 import "../pages/index.css"; // добавьте импорт главного файла стилей
 import { enableValidation, validstionConfig } from "./validate.js";
-import { createStartItems, inputPlace, inputPicture} from "./card.js";
+import {
+  createStartItems,
+  addNewCard,
+  inputPlace,
+  inputPicture,
+} from "./card.js";
 import {
   closePopup,
   popupPlace,
@@ -14,124 +19,111 @@ import {
   inputSubname,
   openPopup,
   popupAvatar,
-  inputAvatar
+  inputAvatar,
 } from "./modal.js";
-import { getCards, getProfile, postCard, postProfile, addAvatar } from "./api.js";
-import {renderLoading} from "./utils.js"
+import { postCard, postProfile, addAvatar, getData } from "./api.js";
+import { renderLoading } from "./utils.js";
 /* ********** ПЕРЕМЕННЫЕ ********** */
 const elements = document.querySelector("#elements");
 const avatar = document.querySelector("#avatar");
 const avatarButton = document.querySelector(".profile__photo");
-const avatarForm = document.querySelector('.popup_js-avatar');
+const avatarForm = document.querySelector(".popup_js-avatar");
 placeCloseButton.addEventListener("click", function () {
   closePopup(popupPlace);
 });
+export let userId = null;
+let allCardsData = null;
+let cardId1 = null;
+/* ***** ДАННЫЕ С СЕРВЕРА ***** */
+getData().then(([cardsData, userData]) => {
+  profileName.textContent = userData.name;
+  profileSubname.textContent = userData.about;
+  avatar.src = userData.avatar;
+  avatar.alt = userData.name;
+  userId = userData._id;
+  allCardsData = cardsData;
 
-
-/* ВАЛИДАЦИЯ */
-enableValidation(validstionConfig);
-
-function enableServerProfile(data) {
-  profileName.textContent = data.name;
-  profileSubname.textContent = data.about;
-  avatar.src = data.avatar;
-  avatar.alt = data.name;
-
-}
-/* ***** РЕНДЕР КАРТОЧЕК **** */
-getCards().then((dataServer) => {
-  dataServer.forEach((obj) => {
-    elements.prepend(createStartItems(obj, false));
+  cardsData.forEach((obj) => {
+    elements.append(createStartItems(obj, false));
+    cardId1 = obj._id;
   });
 });
-/* ***** ЗАГРУЗКА ПРОФИЛЯ ***** */
-function loadProfile() {
-  getProfile().then((dataServerProfile) => {
-    enableServerProfile(dataServerProfile);
-
-  });
-}
-loadProfile();
-/* ***** ДОБАВЛЕНИЕ КАРТОЧКИ ***** */
+/* ВАЛИДАЦИЯ */
+enableValidation(validstionConfig);
 placeForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   postCard({
     name: inputPlace.value,
     link: inputPicture.value,
   })
-    .then((newCardData) => {
-      elements.append(createStartItems(newCardData, true));
+    .then((cardData) => {
+      createStartItems(cardData);
       closePopup(popupPlace);
-      placeForm.reset();
+      location.reload();
+    })
+    .catch((err) => {
+      console.log(err);
     })
     .finally(() => {
-      renderLoading(false)
-    }); 
-    renderLoading(true)
-  });
-
-    /* ***** Редактирование профиля ***** */
-    profileForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      postProfile({
-        name: inputName.value,
-        about: inputSubname.value,
-      })
-      .then ((profileData) => {
-        editProfile(profileData);
-        closePopup(popupPlace);
-      placeForm.reset();
-      })
-      .finally(() => {
-        renderLoading(false)
-      }); 
-      renderLoading(true)
+      renderLoading(false, placeForm);
     });
-
-
-avatarButton.addEventListener('click', function on() {
+  renderLoading(true, placeForm);
+});
+/* ***** Редактирование профиля ***** */
+profileForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  postProfile({
+    name: inputName.value,
+    about: inputSubname.value,
+  })
+    .then((profileData) => {
+      editProfile(profileData);
+    })
+    .finally(() => {
+      renderLoading(false, profileForm);
+    });
+  renderLoading(false, profileForm);
+});
+avatarButton.addEventListener("click", function on() {
   openPopup(popupAvatar);
 });
 avatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  addAvatar({avatar: inputAvatar.value})
-  .then ((data) => {
-    console.log(data)
-    loadProfile(data);
-    closePopup(popupAvatar)
-  }) 
+  addAvatar({ avatar: inputAvatar.value })
+  .then(() => {
+    closePopup(popupAvatar);
+    location.reload();
+  })
+  .finally(() => {
+    renderLoading(false, popupAvatar);
+  });
+renderLoading(false, popupAvatar);
+});
 
-})
-
-
-
-/*   
-  popupRemove.addEventListener('submit', (evt) => {
+/* popupRemove.addEventListener('submit', (evt) => {
       evt.preventDefault();
       removeCard({_id: target._id})
       .then(() => {
         closePopup(popupRemove);
         elementsCard.remove();
       })
-     }) */
-  
-  
-  
+     })   */
 
-
-
-
-
-
-
-
-
-
+/*   function deleteCard(evt) {
+    removeCard(cardId)
+    .then((x) =>{
+      console.log(x);
+      evt.remove()
+    }) 
+  }
+addEventListener */
 
 /* КЛИКАЛКА ДЛЯ ПРОВЕРКИ ЭЛЕМЕНТОВ */
-/*  function showClass(x) {
+/* function showClass(x) {
   console.log(x.classList);
-} 
-project.addEventListener ('click', (evt) => showClass(evt.target));  */
-
-
+  console.log(userId); 
+  console.log(allCardsData);
+  console.log(cardId1);
+  console.log(x.id);
+} */
+/* document.addEventListener("click", (evt) => showClass(evt.target)); */
