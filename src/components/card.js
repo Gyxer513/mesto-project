@@ -4,21 +4,21 @@ import {
   popupZoom,
   popupRemove,
   closePopup,
-  popupAvatar,
 } from "./modal.js";
 import { removeCard, addLike, removeLike } from "./api.js";
 import { renderDelliting } from "./utils.js";
-import { userId } from "./index.js";
+import { userId, cardId} from "./index.js";
 export const inputPlace = document.querySelector("#place");
 export const inputPicture = document.querySelector("#picture");
 export const inputAvatarPicture = document.querySelector("#avatarPicture");
 const zoomImage = document.querySelector(".zoom__image");
 const zoomSignature = document.querySelector(".zoom__signature");
 const containerTemplate = document.querySelector("#element");
+const popupDellite = document.querySelector(".popup_js-remove");
 export const zoomCloseButton = popupZoom.querySelector(
   ".popup__container-button"
 );
-export function createStartItems(items) {
+export function createStartItems(items, ownerId) {
   const elementsCard = containerTemplate.content
     .querySelector(".element__place")
     .cloneNode(true);
@@ -30,7 +30,7 @@ export function createStartItems(items) {
   /* ***** УДАЛЕНИЕ КАРТОЧКИ ***** */
   const buttonDellite = elementsCard.querySelector(".element__button-remove");
   const cardId = items._id;
-
+  ownerId = items.owner._id;
   buttonDellite.addEventListener("click", function () {
     function submitted(evt) {
       evt.preventDefault();
@@ -40,17 +40,16 @@ export function createStartItems(items) {
           elementsCard.remove();
         })
         .finally(() => {
-          renderDelliting(false);
+          renderDelliting(false, popupDellite);
         });
-      renderDelliting(true);
+      renderDelliting(true, popupDellite);
     }
     popupRemove.addEventListener("submit", submitted, {
       once: true,
     });
-    popupRemove.addEventListener("close", (event) => {
+    popupRemove.addEventListener("close", () => {
       popupRemove.removeEventListener("submit", submitted, false);
     });
-
     openPopup(popupRemove);
   });
 
@@ -61,7 +60,7 @@ export function createStartItems(items) {
   const like = elementsCard.querySelector(".element__heart");
   const likeCount = elementsCard.querySelector(".element__like-count");
   items.likes.forEach((element) => {
-    if (element._id === "05d3d3f5b84fd3710ec0b673")
+    if (element._id === cardId)
       like.classList.add("element__heart_active");
   });
 
@@ -88,12 +87,8 @@ export function createStartItems(items) {
   });
   return elementsCard;
 }
-/* export function addNewCard(evt) {
-  evt.preventDefault();
-  const item = {};
+export function addNewCard(item, cardId) {
   item.name = inputPlace.value;
   item.link = inputPicture.value;
-  elements.prepend(createStartItems(item));
-  closePopup(popupPlace);
-  placeForm.reset();
-} */
+  elements.prepend(createStartItems(item, cardId));
+} 

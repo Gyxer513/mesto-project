@@ -2,7 +2,7 @@ const config = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-13/',
   headers:  {
     authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
 };
 
@@ -48,30 +48,21 @@ export function postProfile(dataProfile) {
 export function removeCard(dataID) {
   return fetch (`${config.baseUrl}/cards/${dataID}`, {
     method: 'DELETE',
-    headers:  {
-      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
-    },
-    body: JSON.stringify(dataID),
+    headers: config.headers,
     })
   .then(checkResponse)
 }
 export function addLike(dataID) {
   return fetch (`${config.baseUrl}/cards/likes/${dataID}`, {
     method: 'PUT',
-    headers:  {
-      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
-    },
-    body: JSON.stringify(dataID),
+    headers: config.headers,
     })
   .then(checkResponse)
 }
 export function removeLike(dataID) {
   return fetch (`${config.baseUrl}/cards/likes/${dataID}`, {
     method: 'DELETE',
-    headers:  {
-      authorization: 'f8513dfa-6b67-48df-91bb-0f182fdad87d'
-    },
-    body: JSON.stringify(dataID),
+    headers: config.headers,
     })
   .then(checkResponse)
 }

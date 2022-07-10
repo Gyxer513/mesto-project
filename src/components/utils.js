@@ -1,6 +1,8 @@
 import {closePopup} from "./modal";
+import {profileName, profileSubname} from "./modal.js"
 const buttonSave = document.querySelector('.popup__button-save');
 const popups = document.querySelectorAll('.popup');
+export const avatar = document.querySelector("#avatar");
 
 function cleanSpans(evt) {
     const spans = evt.querySelectorAll(".popup__error-text");
@@ -52,10 +54,15 @@ export function resetVadidation(popup) {
   }
   };
   export function renderDelliting(isLoading, popup) {
-    const popupButton = popup.querySelector('.popup__button-save');
+    const popupdelButton = popup.querySelector('.popup__button-remove_js-profile');
     if (isLoading) {
-      popupButton.textContent = 'Удаление...'
+      popupdelButton.textContent = 'Удаление...'
     } else {
-      popupButton.textContent = 'Удалить'
+      popupdelButton.textContent = 'Удалить'
   }
   };
+
+  export const setUserInfo = ({userName, userDescription, userAvatar}) => {
+    if (userName) profileName.textContent = userName;
+    if (userDescription) profileSubname.textContent = userDescription;
+    if (userAvatar) avatar.src = userAvatar}
