@@ -43,9 +43,8 @@ getData().then(([cardsData, userData]) => {
   cardsData.forEach((obj) => {
     elements.append(createStartItems(obj, false));
   })
-  .catch((err) => {
-    console.log(err);
-  })
+}).catch((err) => {
+  console.log(err);
 });
 /* ВАЛИДАЦИЯ */
 enableValidation(validstionConfig);
@@ -85,7 +84,7 @@ profileForm.addEventListener("submit", (evt) => {
     .finally(() => {
       renderLoading(false, profileForm);
     });
-  renderLoading(false, profileForm);
+  renderLoading(true, profileForm);
 });
 avatarButton.addEventListener("click", function on() {
   openPopup(popupAvatar);
@@ -106,7 +105,7 @@ avatarForm.addEventListener("submit", (evt) => {
   .finally(() => {
     renderLoading(false, avatarForm);
   });
-renderLoading(false, avatarForm);
+renderLoading(true, avatarForm);
 });
 
 
