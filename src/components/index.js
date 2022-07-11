@@ -28,9 +28,6 @@ const elements = document.querySelector("#elements");
 const avatarButton = document.querySelector(".profile__photo");
 const avatarForm = document.querySelector(".popup_js-avatar");
 const formAvatar = document.querySelector(".popup_js-form-avatar");
-placeCloseButton.addEventListener("click", function () {
-  closePopup(popupPlace);
-});
 export let userId = null;
 let allCardsData = null;
 let cardId = null;
@@ -45,8 +42,10 @@ getData().then(([cardsData, userData]) => {
 
   cardsData.forEach((obj) => {
     elements.append(createStartItems(obj, false));
-    cardId = obj._id;
-  });
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 });
 /* ВАЛИДАЦИЯ */
 enableValidation(validstionConfig);
@@ -80,6 +79,9 @@ profileForm.addEventListener("submit", (evt) => {
     .then((profileData) => {
       editProfile(profileData);
     })
+    .catch((err) => {
+      console.log(err);
+    })
     .finally(() => {
       renderLoading(false, profileForm);
     });
@@ -97,6 +99,9 @@ avatarForm.addEventListener("submit", (evt) => {
     })
     formAvatar.reset();
     closePopup(popupAvatar);
+  })
+  .catch((err) => {
+    console.log(err);
   })
   .finally(() => {
     renderLoading(false, avatarForm);

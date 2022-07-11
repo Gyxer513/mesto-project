@@ -26,55 +26,63 @@ export function createStartItems(items, ownerId) {
   cardImage.src = items.link;
   cardImage.alt = items.name;
   elementsCard.querySelector(".element__name").textContent = items.name;
-
   /* ***** УДАЛЕНИЕ КАРТОЧКИ ***** */
   const buttonDellite = elementsCard.querySelector(".element__button-remove");
   const cardId = items._id;
-  ownerId = items.owner._id;
   buttonDellite.addEventListener("click", function () {
-    function submitted(evt) {
+    function deleteCard(evt) {
       evt.preventDefault();
       removeCard(cardId)
         .then(() => {
           closePopup(popupRemove);
           elementsCard.remove();
         })
+        .catch((err) => {
+          console.log(err);
+        })
         .finally(() => {
           renderDelliting(false, popupDellite);
         });
       renderDelliting(true, popupDellite);
     }
-    popupRemove.addEventListener("submit", submitted, {
+    popupRemove.addEventListener("submit", deleteCard, {
       once: true,
     });
+    /* Будем навешиать его только один раз, задав ему параметр { once: true} */
     popupRemove.addEventListener("close", () => {
-      popupRemove.removeEventListener("submit", submitted, false);
-    });
+      popupRemove.removeEventListener("submit", deleteCard, false);
+    }, { once: true});
     openPopup(popupRemove);
   });
 
   if (items.owner._id !== userId) {
     buttonDellite.remove();
   }
-
   const like = elementsCard.querySelector(".element__heart");
   const likeCount = elementsCard.querySelector(".element__like-count");
+  
   items.likes.forEach((element) => {
-    if (element._id === cardId)
+  if (element._id === userId)
       like.classList.add("element__heart_active");
   });
 
   like.addEventListener("click", (evt) => {
     if (evt.target.classList.contains("element__heart_active")) {
-      removeLike(cardId).then(() => {
+      removeLike(cardId).then((dataServ) => {
         evt.target.classList.remove("element__heart_active");
-        likeCount.textContent--;
-      });
+        likeCount.textContent=dataServ.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     } else {
-      addLike(cardId).then(() => {
+      addLike(cardId).then((dataServ) => {
         evt.target.classList.add("element__heart_active");
-        likeCount.textContent++;
-      });
+        likeCount.textContent= dataServ.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
   });
   likeCount.textContent = [...items.likes].length;
