@@ -1,6 +1,6 @@
 import "../pages/index.css"; // добавьте импорт главного файла стилей
 import Api from "./Api.js";
-import Card from "./card";
+import Card from "./Card";
 import Section from "./Section";
 import { PopupWithForm } from "./PopupWithForm";
 import { PopuoWithImage } from "./PopuoWithImage";
@@ -190,6 +190,7 @@ avatarChangeButton.addEventListener("click", () => {
 });
 /* ***** ПОПАП ZOOOOM ***** */
 const popupZoomPhoto = new PopuoWithImage(popupZoom);
+
 function handleCardClick(name, link) {
   popupZoomPhoto.open(name, link);
   popupZoomPhoto.setEventListeners();
