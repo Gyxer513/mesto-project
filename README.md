@@ -18,6 +18,3 @@
 - Всплывающие окна [Ссылка](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)
 
 
-## Примечание
-
-Для отображения всплывающиего окна необходимо добавить модификатор popup_opened в 115 строку кода.
